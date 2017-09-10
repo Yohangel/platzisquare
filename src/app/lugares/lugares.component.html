@@ -1,0 +1,32 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
+</agm-map>
+<hr />
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h2>Lugares Cercanos</h2>
+			<a class="btn btn-primary" routerLink="/crear/new" *ngIf="loggedIn">Crear nuevo negocio</a>
+			<ul class="list-group">
+				<ng-container *ngFor="let lugar of lugares">
+					<li class="list-group-item">
+						<a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre}}</h3></a>
+
+						<small>Creado: {{lugar.id | date:"short" | uppercase}}</small>
+						<p [innerHtml]="lugar.description | linkifystr"></p>
+					</li>
+				</ng-container>
+			</ul>
+		</div>
+		<div class="col-md-4" [@contenedorAnimable]="state">
+			<h2>Destacados</h2>
+			<ng-container *ngFor="let lugar of lugares">
+					<div class="destacado" *ngIf="lugar.plan == 'pagado'">
+						<a routerLink="/crear/{{lugar.id}}"><h3>{{lugar.nombre}}</h3></a>
+						<small>Creado: {{lugar.id | date:"short" | uppercase}}</small>
+						<p [innerHtml]="lugar.description | linkifystr"></p>
+					</div>
+				</ng-container>
+		</div>
+	</div>
+</div>

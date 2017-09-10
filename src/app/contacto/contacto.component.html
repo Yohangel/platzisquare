@@ -1,0 +1,18 @@
+<div class="card card-body bg-light">
+	<a routerLink="/lugares">Volver a Lugares</a>
+</div>
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<hr />
+<div class="container">
+	<label>Nombre</label>
+	<input type="text" class="form-control" />
+	<label>Correo</label>
+	<input type="email" class="form-control" />
+	<label>Mensaje</label>
+	<textarea class="form-control"></textarea>
+	<hr />
+	<button class="btn btn-primary">Enviar</button>
+	<button class="btn btn-default" routerLink="/lugares">Cancelar</button>
+</div>

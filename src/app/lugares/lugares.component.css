@@ -1,0 +1,12 @@
+agm-map {
+  height: 300px;
+}
+.destacado{
+	padding: 10px;
+	background: #eee;
+	border: 1px solid #ccc;
+	margin-bottom: 5px;
+}
+.destacado a{
+	color: brown;
+}
